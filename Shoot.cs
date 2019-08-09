@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    float timeStamp = 0;
-    int weapon = 1;
+    public int weaponType = 0;
+    //public int weaponLVL = 0;
+    MachineGun machineGun;
+
+    void Start()
+    {
+        machineGun = new MachineGun(); // revisar porque esta como el orto 
+    }
 
     void Update()
     {
-        /* La onda seria algo asi
-         * timeStamp = bala.Shoot(timeStamp,lvlDeLaBala)
-         * 
-         * y en Shoot del script Bala
-         * if(timeStamp < time.time)
-         *  logica de arma en particular
-         *  timeStamp = time.time + cooldown
-         *  return timeStamp
-         */
+        if (Input.GetButton("Fire1"))
+        {
+            switch (weaponType)
+            {
+                case 0:
+                    machineGun.ShootLogic();
+                    break;
+                case 1:
+                    //bla
+                    break;
+                default:
+                    //bla
+                    break;
+            }
+        }
+
     }
 }
