@@ -6,11 +6,12 @@ public class Shoot : MonoBehaviour
 {
     public int weaponType = 0;
     //public int weaponLVL = 0;
-    MachineGun machineGun;
+    public GameObject Weapons; //agrego el componente desde el inspector
+    MGun machineGun; // genero la variable para storear el script Machinegun
 
     void Start()
     {
-        machineGun = new MachineGun(); // revisar porque esta como el orto 
+        machineGun = Weapons.GetComponent<MGun>(); // importo from weapons
     }
 
     void Update()
