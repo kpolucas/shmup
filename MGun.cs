@@ -14,7 +14,6 @@ public class MGun : MonoBehaviour
     {
         if (timeStamp <= Time.time)
         {
-            Debug.Log("pium pium pium");
             GameObject bullet = Instantiate(bulletMGunLVL1, firePoint.position, firePoint.rotation);
             bullet.name = "Bullet";
             timeStamp = Time.time + cooldownInSeconds;
