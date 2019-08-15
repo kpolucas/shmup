@@ -14,16 +14,20 @@ public class EnemySpawner : MonoBehaviour
     {
         if (other.name == "EnemyTrigger")
         {
-            int i = 0;
-            while (i < cantidad)
-            {
-	        GameObject enemy = Instantiate(enemyType, transform.position, transform.rotation); // puede fallar
-	        enemy.name = "Enemy";
-	        //sleep intervEnSec;
-	        i++;
-	    }
+            StartCoroutine(Spawner()); // separo para poder usar equivalente de sleep
         }
     }
 
 
+    IEnumerator Spawner()
+    {
+        int i = 0;
+        while (i < cantidad)
+        {
+            GameObject enemy = Instantiate(enemyType, transform.position, transform.rotation);
+            enemy.name = "Enemy";
+            i++;
+            yield return new WaitForSeconds(intervEnSec);
+        }
+    }
 }
