@@ -14,11 +14,14 @@ public class EnemySpawner : MonoBehaviour
     {
         if (other.name == "EnemyTrigger")
         {
-            Debug.Log(other.name);
-            /*
-            GameObject bullet = Instantiate(bulletMGunLVL1, firePoint.position, firePoint.rotation);
-            bullet.name = "Bullet";
-            */
+            int i = 0;
+            while (i < cantidad)
+            {
+	        GameObject enemy = Instantiate(enemyType, transform.position, transform.rotation); // puede fallar
+	        enemy.name = "Enemy";
+	        //sleep intervEnSec;
+	        i++;
+	    }
         }
     }
 
